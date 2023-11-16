@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import MonList from './components/MonList'
 import './App.css'
+import './style.css'
 
 function App() {
 	return (

@@ -1,4 +1,5 @@
 import {React, useState, useEffect} from "react";
+import MonRow from "./MonRow";
 
 const API_URL = `https://pokeapi.co/api/v2/pokemon/`;
 const DEFAULT_OFFSET = 0;
@@ -26,19 +27,17 @@ const MonList = ({offset, limit}) => {
 		fetchMons();
 	}, []);
 
-	console.log(mons);
-
 	return (
 		mons ? (
-			<section>
+			<div className="column-flex">
 			{
 				mons.map((monster) => {
 					return (
-						<div>{monster.name}</div>
+						<MonRow monsterURL={monster.url}></MonRow>
 					);
 				})
 			}
-			</section>
+			</div>
 		) : (
 			<p>...</p>
 		)

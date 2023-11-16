@@ -1,0 +1,17 @@
+.column-flex {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.row-flex {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+}
+
+label {
+	font-size: 2rem;
+}
