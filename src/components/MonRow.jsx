@@ -10,10 +10,9 @@ const MonRow = ({monsterURL}) => {
 				const response = await fetch(monsterURL);
 				const json = await response.json();
 				setMonster(json);
-				setSprite(monster.sprites.front_default);
 			}
 			catch(error) {
-				console.log(`ERROR: ${error}`);
+				console.log(`ERROR ON ${monsterURL} ${error}`);
 			}
 		};
 
@@ -32,7 +31,7 @@ const MonRow = ({monsterURL}) => {
 				onMouseEnter={() => {setSprite(monster.sprites.front_shiny)}} 
 				onMouseLeave={() => {setSprite(monster.sprites.front_default)}}
 				>
-					<img className='pixel' src={sprite}></img>
+					<img className='pixel' src={sprite ? sprite : monster.sprites.front_default}></img>
 				</button>
 				<label>{getCapitalizedName(monster.name)}</label>
 			</section>

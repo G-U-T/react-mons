@@ -30,13 +30,14 @@ const MonList = ({offset, limit}) => {
 	return (
 		mons ? (
 			<div className="column-flex">
-			{
-				mons.map((monster) => {
-					return (
-						<MonRow monsterURL={monster.url}></MonRow>
-					);
-				})
-			}
+				<p>Viewing Pokémon <strong>{offset}</strong> to <strong>{offset + limit}</strong>.</p>
+				{
+					mons.map((monster) => {
+						return (
+							<MonRow monsterURL={monster.url} key={monster.name}></MonRow>
+						);
+					})
+				}
 			</div>
 		) : (
 			<p>...</p>
