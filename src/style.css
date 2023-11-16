@@ -12,6 +12,11 @@
 	align-items: center;
 }
 
+/* Pixel-art for pokemon shouldn't look blurry. */
+.pixel {
+	image-rendering: pixelated;
+}
+
 label {
 	font-size: 2rem;
 }
