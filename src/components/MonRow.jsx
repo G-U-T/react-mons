@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from "react";
+import getCapitalizedName from "../helper_functions";
 
-const MonRow = ({monsterURL}) => {
+const MonRow = ({monsterURL, setSelectedMon}) => {
 	const [monster, setMonster] = useState(null);
 	const [sprite, setSprite] = useState(null);
 
@@ -19,10 +20,6 @@ const MonRow = ({monsterURL}) => {
 		fetchMonster();
 	}, []);
 
-	const getCapitalizedName = (name) => {
-		return name.slice(0, 1).toUpperCase() + name.slice(1);
-	};
-
 	return (
 		monster !== null && monster !== undefined ? (
 		<>
@@ -30,6 +27,7 @@ const MonRow = ({monsterURL}) => {
 				<button 
 				onMouseEnter={() => {setSprite(monster.sprites.front_shiny)}} 
 				onMouseLeave={() => {setSprite(monster.sprites.front_default)}}
+				onClick={() => {setSelectedMon(monster)}}
 				>
 					<img className='pixel' src={sprite ? sprite : monster.sprites.front_default}></img>
 				</button>

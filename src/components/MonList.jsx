@@ -5,7 +5,7 @@ const API_URL = `https://pokeapi.co/api/v2/pokemon/`;
 const DEFAULT_OFFSET = 0;
 const DEFAULT_LIMIT = 20;
 
-const MonList = ({offset, limit}) => {
+const MonList = ({offset, limit, setSelectedMon}) => {
 	const [mons, setMons] = useState(null);
 	
 	useEffect(() => {
@@ -34,7 +34,7 @@ const MonList = ({offset, limit}) => {
 				{
 					mons.map((monster) => {
 						return (
-							<MonRow monsterURL={monster.url} key={monster.name}></MonRow>
+							<MonRow monsterURL={monster.url} key={monster.name} setSelectedMon={setSelectedMon}></MonRow>
 						);
 					})
 				}
