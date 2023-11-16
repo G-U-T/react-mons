@@ -21,11 +21,12 @@
 	margin: 4rem;
 }
 
-label {
+/* Make name labels larger, but not labels in forms. */
+label:not(form *) {
 	font-size: 2rem;
 }
 
-section {
+section:not(form *), form {
 	padding: 0.5rem;
 	background-color: black;
 	border-radius: 8px;
